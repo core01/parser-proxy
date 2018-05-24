@@ -1,5 +1,6 @@
-const axios = require('axios');
 const express = require('express');
+
+const needle = require('needle');
 
 const app = express();
 
@@ -10,8 +11,15 @@ app.get('/', (req, res) => {
       message: 'Url not provided'
     });
   }
-  axios.get(req.query.url).then(response => {
-    return res.send(response.data);
+  needle.get(req.query.url, function(error, response) {
+    if (!error && response.statusCode === 200){
+      res.send(response.body);
+    }else{
+      res.status(500).json({
+        success: false,
+        message: 'Remote server error'
+      });
+    }
   });
 });
 // catch 404 and forward to error handler
