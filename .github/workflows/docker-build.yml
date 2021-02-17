@@ -1,5 +1,7 @@
 name: docker-build
 
+on: push
+
 jobs:
   main:
     runs-on: ubuntu-latest
