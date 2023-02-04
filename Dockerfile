@@ -1,10 +1,10 @@
-FROM node:12.20.2-alpine3.10
+FROM node:lts-alpine3.16
 WORKDIR /app
 COPY . .
-RUN yarn install
+RUN npm ci
 
 EXPOSE 3000
 
-CMD [ "yarn", "start" ]
+CMD [ "npm", "run", "start" ]
 
 

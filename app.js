@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
       message: "Url not provided",
     });
   }
-  needle.get(req.query.url, function (error, response) {
+  needle.get(req.query.url, { compressed: true }, function (error, response) {
     if (!error && response.statusCode === 200) {
       res.send(response.body);
     } else {

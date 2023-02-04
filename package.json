@@ -13,8 +13,5 @@
     "express": "^4.16.3",
     "needle": "*"
   },
-  "devDependencies": {},
-  "engines": {
-    "node": "12.x"
-  }
+  "devDependencies": {}
 }
